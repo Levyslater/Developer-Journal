@@ -11,6 +11,7 @@ ManyToMany relationships in Django don’t store a ForeignKey on either model.
 class BlogPost(models.Model):
     title = models.CharField(max_length=255)
     tags = models.ManyToManyField('Tag', related_name='blog_posts')
+```
 How I Discovered It:
 During a conversation about BlogPost ↔ Tag relationships, I realized Django creates a hidden “through” table instead of storing a FK on either model.
 
